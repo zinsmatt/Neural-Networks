@@ -56,3 +56,41 @@ double Training::derivativeActivationFnc(ActivationFnc fnc, double value) const
         throw invalid_argument("unknown derivative activation function");
     }
 }
+
+
+void Training::train(NeuralNet &n)
+{
+    vector<double> inputWeightIn;
+    int rows = n.getTrainSet().length();
+    int cols = n.getTrainSet()[0].length();
+
+    while(epochs < n.getMaxEpochs())
+    {
+        double estimatedOutput = 0.0;
+        double realOutput = 0.0;
+
+        for(int i=0;i<rows;i++)
+        {
+            double netValue = 0.0;
+
+            for(int j=0;j<cols;j++)
+            {
+                inputWeightIn = n.getInputLayer().getListOfNeurons().get(j).getListOfWeightIn();
+                double inputWeight = inputWeightIn.get(0);
+                netValue = netValue + inputWeight * n.getTrainSet()[i][j];
+            }
+
+            estimatedOutput = activationFnc(n.getActivationFnc(), netValue);
+            realOutput = n.getRealOutputSet()[i];
+
+            error = realOutput - estimatedOutput;
+
+            if(abs(error) > n.getTargetError)
+            {
+                InputLayer inputLayer
+            }
+        }
+
+    }
+
+}

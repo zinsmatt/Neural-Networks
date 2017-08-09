@@ -2,6 +2,8 @@
 #define TRAINING_H
 #include <cmath>
 
+class NeuralNet;
+
 class Training
 {
     int epochs;
@@ -67,6 +69,19 @@ public:
 
     double activationFnc(ActivationFnc fnc, double value) const;
     double derivativeActivationFnc(ActivationFnc fnc, double value) const;
+
+    void train(NeuralNet& n);
+    void teachNeuronsOfLayer(int numberOfInputNeurons, int line, const NeuralNet& net, double netValue);
+
+
+    void printTrainedNetResult(const NeuralNet& trainedNet);
+    int getEpochs() const { return epochs; }
+    void setEpochs(int e) { epochs = e; }
+    double getError() const { return error; }
+    void setError(double err) { error = err; }
+    double getMSE() const { return mse; }
+    double setMSE(double m) { mse = m; }
+
 };
 
 #endif // TRAINING_H
