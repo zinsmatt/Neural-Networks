@@ -19,4 +19,5 @@ HEADERS += \
     outputlayer.h \
     hiddenlayer.h \
     neuralnet.h \
-    training.h
+    training.h \
+    activationfunction.h
