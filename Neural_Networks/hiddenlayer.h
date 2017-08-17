@@ -1,14 +1,23 @@
 #ifndef HIDDENLAYER_H
 #define HIDDENLAYER_H
-
+#include "layer.h"
 
 class HiddenLayer : public Layer
 {
 public:
-    HiddenLayer();
+    HiddenLayer(NeuralNet* _neuralNet, int numberofneurons, ActivationFunction fnc, int numberofinputs);
 
-    void initLayer();
-    void printLayer() const;
+    /**
+     * @brief setPreviousLayer
+     * @param prev
+     */
+    virtual void setPreviousLayer(Layer* prev);
+
+    /**
+     * @brief setNextLayer
+     * @param next
+     */
+    virtual void setNextLayer(Layer* next);
 };
 
 #endif // HIDDENLAYER_H

@@ -17,7 +17,6 @@ Layer::Layer(NeuralNet *_neuralNet, int nbNeurons, const ActivationFunction &fnc
 {
     neurons.resize(numberOfNeuronsInLayer);
     output.resize(numberOfNeuronsInLayer);
-
 }
 
 Neuron* Layer::getNeuron(int i) const

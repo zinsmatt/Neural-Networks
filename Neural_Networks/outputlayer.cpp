@@ -1,8 +1,9 @@
 #include "outputlayer.h"
 
 OutputLayer::OutputLayer(NeuralNet *_neuralnet, int numberofneurons, ActivationFunction fnc, int numberofinputs) :
-    Layer(_neuralnet, numberofneurons, fnc), numberOfInputs(numberofinputs)
+    Layer(_neuralnet, numberofneurons, fnc)
 {
+    numberOfInputs = numberofinputs;
     nextLayer = NULL;
     init();
 }
@@ -25,5 +26,6 @@ void OutputLayer::setNextLayer(Layer *next)
 void OutputLayer::setPreviousLayer(Layer *prev)
 {
     previousLayer = prev;
-    prev->setNextLayer(this);
+    if(previousLayer->getNextLayer() := this)
+        previousLayer->setNextLayer(this);
 }

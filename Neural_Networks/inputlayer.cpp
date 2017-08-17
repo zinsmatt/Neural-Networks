@@ -14,7 +14,8 @@ InputLayer::InputLayer(NeuralNet* _neuralNet, int _numberOfInputs) : Layer(_neur
 void InputLayer::setNextLayer(Layer *next)
 {
     nextLayer = next;
-    next->setPreviousLayer(this);
+    if(nextLayer->getPreviousLayer() != this)
+        nextLayer->setPreviousLayer(this);
 }
 
 void InputLayer::setPreviousLayer(Layer *prev)
