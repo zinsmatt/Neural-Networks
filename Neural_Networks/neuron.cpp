@@ -48,7 +48,7 @@ double Neuron::getInput(int i) const
         return inputs[i];
     else
     {
-        cerr << "getInput: invalid index" << endl;
+        cerr << "neuron::getInput: invalid index" << endl;
         return 0;
     }
 }
@@ -59,7 +59,7 @@ double Neuron::getWeight(int i) const
         return weight[i];
     else
     {
-        cerr << "getWeight: invalid index" << endl;
+        cerr << "neuron::getWeight: invalid index" << endl;
         return 0;
     }
 }
@@ -69,7 +69,7 @@ void Neuron::setWeight(int i, double value)
     if(i>0 && i<weights.size())
         weights[i] = value;
     else
-        cerr << "updateWeights: invalid index" << endl;
+        cerr << "neuron::updateWeights: invalid index" << endl;
 }
 
 void Neuron::calc()
