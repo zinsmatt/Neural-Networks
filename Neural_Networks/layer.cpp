@@ -32,12 +32,12 @@ void Layer::setNeuron(int i, Neuron *_neuron)
 {
     if(i>0 && i<neurons.size())
     {
-        neurons.insert(neurons.begin()+i, _neuron);
+        neurons[i] = _neuron;
     }else
     {
         neurons.push_back(_neuron);
+        numberOfNeuronsInLayer++;   // not sure
     }
-    numberOfNeuronsInLayer++;   // not sure
 }
 
 void Layer::init()
@@ -99,4 +99,19 @@ bool Layer::isBiasActive() const
         return neurons[0]->getBias() == 1.0;
     else
         return false;
+}
+
+void Layer::setPreviousLayer(Layer *prev)
+{
+    previousLayer = prev;
+}
+
+void Layer::setNextLayer(Layer *prev)
+{
+    nextLayer = next;
+}
+
+const vector<double>& Layer::getOutputs() const
+{
+    return output;
 }

@@ -25,13 +25,16 @@ public:
     Neuron(int nbInputs);
     Neuron(int nbInputs, ActivationFunction af);
 
-
+    /**
+     * @brief setNeuralLayer
+     * @param layer
+     */
     void setNeuralLayer(Layer* layer) { neuralLayer = layer; }
 
     /**
      * @brief init: initialise the weights with random value
      */
-    void init();
+    virtual void init();
 
     /**
      * @brief setInputs Set a vector of double to the neuron input

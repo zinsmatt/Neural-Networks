@@ -89,47 +89,46 @@ public:
      */
     bool isBiasActive() const;
 
-protected:
     /**
      * @brief setPreviousLayer
      * @param prev
      */
-    void setPreviousLayer(Layer* prev) { previousLayer = prev; }
+    virtual void setPreviousLayer(Layer* prev);
 
     /**
      * @brief setNextLayer
      * @param next
      */
-    void setNextLayer(Layer* next) { nextLayer = next; }
+    virtual void setNextLayer(Layer* next);
 
     /**
      * @brief init all the neurons of this layer
      */
-    void init();
+    virtual void init();
 
     /**
      * @brief setInputs
      * @param inputs
      */
-    void setInputs(const std::vector<double>& _inputs);
+    virtual void setInputs(const std::vector<double>& _inputs);
 
     /**
      * @brief calc
      */
-    void calc();
+    virtual void calc();
 
     /**
      * @brief getOutputs
      * @return a vector with all the output values
      */
-    const std::vector<double>& getOutputs() const { return output; }
+    virtual const std::vector<double>& getOutputs() const;
 
     /**
      * @brief setNeuron set the neuron at place i or append it
      * @param i
      * @param _neuron
      */
-    void setNeuron(int i, Neuron* _neuron);
+    virtual void setNeuron(int i, Neuron* _neuron);
 
 };
 

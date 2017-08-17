@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     outputlayer.cpp \
     hiddenlayer.cpp \
     neuralnet.cpp \
-    training.cpp
+    training.cpp \
+    inputneuron.cpp
 
 HEADERS += \
     neuron.h \
@@ -20,4 +21,5 @@ HEADERS += \
     hiddenlayer.h \
     neuralnet.h \
     training.h \
-    activationfunction.h
+    activationfunction.h \
+    inputneuron.h
