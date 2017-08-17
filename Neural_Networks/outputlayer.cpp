@@ -26,6 +26,6 @@ void OutputLayer::setNextLayer(Layer *next)
 void OutputLayer::setPreviousLayer(Layer *prev)
 {
     previousLayer = prev;
-    if(previousLayer->getNextLayer() := this)
+    if(previousLayer->getNextLayer() != this)
         previousLayer->setNextLayer(this);
 }
