@@ -3,7 +3,7 @@
 
 InputNeuron::InputNeuron() : Neuron(1)
 {
-    setActivationFunction(Linear(1));
+    setActivationFunction(ActivationFunction(ActivationFunction::LINEAR,1));
     bias = 0.0;
 }
 

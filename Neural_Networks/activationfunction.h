@@ -5,17 +5,22 @@
 
 class ActivationFunction
 {
+    double coef;    // coefficient that multiplies x (not used for step)
 public:
 
     enum ActivationFunctionENUM{
         STEP, LINEAR, SIGMOID, HYPERTAN
     };
 
-    double operator()(double value) const = 0;   // compute the output
-    double derivative(double value) const = 0;  // compute the derivative
+    ActivationFunctionENUM type;
+
+    ActivationFunction(ActivationFunctionENUM _type, double _coef = 1.0) : type(_type), coef(_coef) {}
+
+    double operator()(double value) const;   // compute the output
+    double derivative(double value) const;  // compute the derivative
 };
 
-class Step : public ActivationFunction
+/*class Step : public ActivationFunction
 {
     double operator ()(double x) const
     {
@@ -72,6 +77,6 @@ public:
     double operator ()(double x) const { return (1.0-exp(-coef*x))/(1.0+exp(-coef*x)); }
 
     double derivative(double value) const { return 1.0-pow(*this(x),2.0); }
-};
+};*/
 
 #endif // ACTIVATIONFUNCTION_H

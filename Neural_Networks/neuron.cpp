@@ -15,7 +15,7 @@ Neuron::Neuron(int nbInputs) : numberOfInputs(nbInputs)
     input.resize(numberOfInputs);
 }
 
-Neuron::Neuron(int nbInputs, ActivationFunction af) : numberOfInputs(nbInputs), activationFunction(af)
+Neuron::Neuron(int nbInputs, const ActivationFunction &af) : numberOfInputs(nbInputs), activationFunction(*af)
 {
     weigths.resize(numberOfInputs);
     input.resize(numberOfInputs);

@@ -2,11 +2,13 @@
 #define NEURON_H
 
 #include <vector>
+#include "activationfunction.h"
 
 class Layer;
 
 class Neuron
 {
+protected:
     std::vector<double> weights;         // weights associated with this neuron
     std::vector<double> inputs;          // inputs of this neuron
     int numberOfInputs;             // number of inputs
@@ -21,9 +23,13 @@ class Neuron
     Layer* neuralLayer;             // neural layer corresponding
 
 public:
+
     Neuron();
     Neuron(int nbInputs);
-    Neuron(int nbInputs, ActivationFunction af);
+    Neuron(int nbInputs, const ActivationFunction& af);
+
+    ~Neuron() { delete &activationFunction; }
+
 
     /**
      * @brief setNeuralLayer

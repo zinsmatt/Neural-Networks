@@ -28,6 +28,7 @@ public:
     Layer(NeuralNet* _neuralNet, int nbNeurons);
     Layer(NeuralNet* _neuralNet, int nbNeurons, const ActivationFunction& fnc);
 
+
     /**
      * @brief getNumberOfNeuronsInLayer
      * @return the number of neurons in the layer
